@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int	ft_atoi(const char *str)
 {
     int res;
@@ -28,4 +30,12 @@ int	ft_atoi(const char *str)
 
     }
     return (res * sign);
+}
+
+int main(void)
+{
+    int n;
+    n = ft_atoi("test");
+    printf("%i", n);
+    return (0);
 }

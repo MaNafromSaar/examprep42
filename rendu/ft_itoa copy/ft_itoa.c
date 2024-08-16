@@ -1,32 +1,37 @@
-#include <stdlib.h>
-
-char    res[13];
-
-char    *ft_itoa(int nbr)
+char	*ft_itoa(int nbr)
 {
-    int     tmp;
-    int     i;
+    static char s[14];
+    int         i;
+    int         sign;
+    int         abs;
 
-    tmp = nbr;
-    if (nbr == -2147483648)
-        return("-2147483648");
-    if (nbr == 0)
-        return("0");
+    sign = 1;
+    i = 13;
+    s[i] = '\0';
+    i--;
     if (nbr < 0)
-        nbr = -nbr;
-    res[12] = '\0';
-    i = 11;
-    while (nbr > 0)
     {
-        res[i] = '0' + nbr % 10;
-        nbr = nbr / 10;
-        i--;
-    }
-    if (tmp < 0)
-    {
-        res[i] = '-';
-        return (&res[i]);
+        abs = nbr * -1;
+        sign = -1;
     }
     else
-        return (&res[i + 1]);
+    {
+        abs = nbr;
+    }
+    if (abs == 0)
+    {
+        s[i] == '0';
+    }
+    while (abs > 0)
+    {
+        s[i] = abs % 10 + '0';
+        abs = abs / 10;
+        i--; 
+    }
+    if (sign == -1)
+    {
+        s[i] = '-';
+        i--;
+    }
+    return (&s[i + 1]);
 }
