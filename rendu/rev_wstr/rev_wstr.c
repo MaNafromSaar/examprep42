@@ -1,50 +1,47 @@
-#include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
 
-int main(int argc, char **argv)
-{
-    char    *s;
-    char    arr[2000][200];
-    int     count;
-    int     len;
-    
+char arr[1000];
 
-    count = 0;
-    if (argc != 2)
-    {
+int main(int argc, char **argv) {
+    char *s;
+    int i = 0;
+    char *tmp;
+    char *start;
+    char *p;
+
+    if (argc != 2) {
         write(1, "\n", 1);
         return (1);
     }
     s = argv[1];
-    while (*s)
-    {
-        len = 0;
-        while (*s != ' ' && *s != '\0')
-        {
-            arr[count][len] = *s;
-            len++;
-            s++;
+    start = s;
+    while (*s) // Move to the end of the string
+        s++;
+    s--; // Step back to the last character of the string
+
+    while (s >= start) {
+        if (*s == ' ') {
+            s--; // Skip trailing spaces
+            continue;
         }
-        arr[count][len] = '\0';
-        if (*s != '\0')
-        {
-            s++;
-            count++;
+        tmp = s;
+        while (tmp > start && *(tmp - 1) != ' ') // Find the start of the word
+            tmp--;
+        // Copy the word
+        for (p = tmp; p <= s; p++) { //!!! new variable to copy the word and retain the starting point of the next(previous) one!!!
+            arr[i++] = *p;
+        }
+        s = tmp - 1; // Move s to before the start of the word
+        if (s > start) {
+            arr[i++] = ' '; // Add a space before the next word
         }
     }
-    while (count >= 0)
-    {
-        len = 0;
-        while (arr[count][len] != '\0')
-        {
-            write(1, &arr[count][len], 1);
-            len++;
-        }
-        if (count > 0)
-            write(1, " ", 1);
-        count--;
+    if (i > 0 && arr[i - 1] == ' ') { // Remove trailing space if present
+        i--;
     }
+    arr[i] = '\0'; // Ensure the string is null-terminated
+    write(1, arr, i);
     write(1, "\n", 1);
     return (0);
 }

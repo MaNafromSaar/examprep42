@@ -1,22 +1,23 @@
 #include <unistd.h>
-#include <stdlib.h>
 
 
-void    printnum(int num)
+void putnbr(unsigned int n) 
 {
-    char    digit;
-    if (num >= 10)
-        printnum(num / 10);
-    digit = num % 10 + '0';
-    write(1, &digit, 1);
+    if (n >= 10) 
+    {
+        putnbr(n / 10);
+    }
+    char c = n % 10 + '0';
+    write(1, &c, 1);
 }
 
 int main(int argc, char **argv)
 {
-    int num;
+    int     n;
+    char    c;
 
-    num = argc - 1;
-    printnum(num);
+    n = argc - 1;
+    putnbr(n);
     write(1, "\n", 1);
     return (0);
 }
