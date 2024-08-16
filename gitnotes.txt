@@ -1,0 +1,237 @@
+mnaumann@2-B-8 fractol_3 % git remote -v
+origin  git@vogsphere.42heilbronn.de:vogsphere/intra-uuid-276adbef-4b64-4aae-b55e-66282ce72405-5941703-mnaumann (fetch)
+origin  git@vogsphere.42heilbronn.de:vogsphere/intra-uuid-276adbef-4b64-4aae-b55e-66282ce72405-5941703-mnaumann (push)
+mnaumann@2-B-8 fractol_3 % git log
+commit 71e463fcf3833ef821bf6d941b6438d10fbff09d (HEAD -> master, origin/master)
+Author: Matthias Naumann <mnaumann@2-C-8.42heilbronn.de>
+Date:   Thu Aug 15 17:11:26 2024 +0200
+
+    fixed crashh when zooming out ad infinitum at beginning and started with a slight zoom, so the arrow keys already work (which both are like asking to scroll left when being presented a painting but ok)
+mnaumann@2-B-8 fractol_3 % git remote add github_repo git@github.com:MaNafromSaar/fractol.git
+mnaumann@2-B-8 fractol_3 % git remote -v
+github_repo     git@github.com:MaNafromSaar/fractol.git (fetch)
+github_repo     git@github.com:MaNafromSaar/fractol.git (push)
+origin  git@vogsphere.42heilbronn.de:vogsphere/intra-uuid-276adbef-4b64-4aae-b55e-66282ce72405-5941703-mnaumann (fetch)
+origin  git@vogsphere.42heilbronn.de:vogsphere/intra-uuid-276adbef-4b64-4aae-b55e-66282ce72405-5941703-mnaumann (push)
+mnaumann@2-B-8 fractol_3 % git push github_repo
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (14/14), done.
+Writing objects: 100% (15/15), 7.79 KiB | 3.89 MiB/s, done.
+Total 15 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), done.
+remote: 
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/MaNafromSaar/fractol/pull/new/master
+remote: 
+To github.com:MaNafromSaar/fractol.git
+ * [new branch]      master -> master
+mnaumann@2-B-8 fractol_3 % git pull
+Already up to date.
+mnaumann@2-B-8 fractol_3 % git branch main
+mnaumann@2-B-8 fractol_3 % git branch
+  main
+* master
+mnaumann@2-B-8 fractol_3 % ls
+Makefile        img01.c         include         julia.c         operations01.c  tricorn.c
+fractol.c       img02.c         init.c          mandelbrot.c    operations02.c  utils.c
+mnaumann@2-B-8 fractol_3 % git log
+commit 71e463fcf3833ef821bf6d941b6438d10fbff09d (HEAD -> master, origin/master, github_repo/master, main)
+Author: Matthias Naumann <mnaumann@2-C-8.42heilbronn.de>
+Date:   Thu Aug 15 17:11:26 2024 +0200
+
+    fixed crashh when zooming out ad infinitum at beginning and started with a slight zoom, so the arrow keys already work (which both are like asking to scroll left when being presented a painting but ok)
+mnaumann@2-B-8 fractol_3 % git branch mater
+mnaumann@2-B-8 fractol_3 % git branch master
+fatal: A branch named 'master' already exists.
+mnaumann@2-B-8 fractol_3 % git branch       
+  main
+* master
+  mater
+mnaumann@2-B-8 fractol_3 % git branch -d mater
+Deleted branch mater (was 71e463f).
+mnaumann@2-B-8 fractol_3 % git checkout main
+M       fractol.c
+M       include/fractol.h
+M       init.c
+M       operations01.c
+M       operations02.c
+M       utils.c
+Switched to branch 'main'
+mnaumann@2-B-8 fractol_3 % git log
+commit 71e463fcf3833ef821bf6d941b6438d10fbff09d (HEAD -> main, origin/master, github_repo/master, master)
+Author: Matthias Naumann <mnaumann@2-C-8.42heilbronn.de>
+Date:   Thu Aug 15 17:11:26 2024 +0200
+
+    fixed crashh when zooming out ad infinitum at beginning and started with a slight zoom, so the arrow keys already work (which both are like asking to scroll left when being presented a painting but ok)
+mnaumann@2-B-8 fractol_3 % git checkout master
+M       fractol.c
+M       include/fractol.h
+M       init.c
+M       operations01.c
+M       operations02.c
+M       utils.c
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+mnaumann@2-B-8 fractol_3 % git branch -d main
+Deleted branch main (was 71e463f).
+mnaumann@2-B-8 fractol_3 % git pull github_repo
+remote: Enumerating objects: 95, done.
+remote: Counting objects: 100% (95/95), done.
+remote: Compressing objects: 100% (69/69), done.
+remote: Total 95 (delta 33), reused 75 (delta 23), pack-reused 0 (from 0)
+Unpacking objects: 100% (95/95), done.
+From github.com:MaNafromSaar/fractol
+ * [new branch]      main       -> github_repo/main
+You asked to pull from the remote 'github_repo', but did not specify
+a branch. Because this is not the default configured remote
+for your current branch, you must specify a branch on the command line.
+mnaumann@2-B-8 fractol_3 % git branch
+* master
+mnaumann@2-B-8 fractol_3 % git checkout master
+M       fractol.c
+M       include/fractol.h
+M       init.c
+M       operations01.c
+M       operations02.c
+M       utils.c
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+mnaumann@2-B-8 fractol_3 % git log
+commit 71e463fcf3833ef821bf6d941b6438d10fbff09d (HEAD -> master, origin/master, github_repo/master)
+Author: Matthias Naumann <mnaumann@2-C-8.42heilbronn.de>
+Date:   Thu Aug 15 17:11:26 2024 +0200
+
+    fixed crashh when zooming out ad infinitum at beginning and started with a slight zoom, so the arrow keys already work (which both are like asking to scroll left when being presented a painting but ok)
+mnaumann@2-B-8 fractol_3 % git checkout main  
+error: Your local changes to the following files would be overwritten by checkout:
+        fractol.c
+        include/fractol.h
+        init.c
+        operations01.c
+        operations02.c
+        utils.c
+Please commit your changes or stash them before you switch branches.
+Aborting
+mnaumann@2-B-8 fractol_3 % git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+No commands done.
+Next command to do (1 remaining command):
+   noop
+  (use "git rebase --edit-todo" to view and edit)
+You are currently editing a commit while rebasing branch 'master' on '71e463f'.
+  (use "git commit --amend" to amend the current commit)
+  (use "git rebase --continue" once you are satisfied with your changes)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   fractol.c
+        modified:   include/fractol.h
+        modified:   init.c
+        modified:   operations01.c
+        modified:   operations02.c
+        modified:   utils.c
+
+no changes added to commit (use "git add" and/or "git commit -a")
+mnaumann@2-B-8 fractol_3 % git log
+commit 71e463fcf3833ef821bf6d941b6438d10fbff09d (HEAD -> master, origin/master, github_repo/master)
+Author: Matthias Naumann <mnaumann@2-C-8.42heilbronn.de>
+Date:   Thu Aug 15 17:11:26 2024 +0200
+
+    fixed crashh when zooming out ad infinitum at beginning and started with a slight zoom, so the arrow keys already work (which both are like asking to scroll left when being presented a painting but ok)
+mnaumann@2-B-8 fractol_3 % git commit -am "post eval changes"
+[master be35efb] post eval changes
+ Committer: Matthias Naumann <mnaumann@2-B-8.42heilbronn.de>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 6 files changed, 13 insertions(+), 17 deletions(-)
+mnaumann@2-B-8 fractol_3 % git push
+Gitea: Unauthorized
+User: 1784:mnaumann with Key: 186636:mnaumann 2024-03-04T19:08:43Z is not authorized to write to vogsphere/intra-uuid-276adbef-4b64-4aae-b55e-66282ce72405-5941703-mnaumann.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+mnaumann@2-B-8 fractol_3 % git push github_repo
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (9/9), 901 bytes | 901.00 KiB/s, done.
+Total 9 (delta 7), reused 0 (delta 0)
+remote: Resolving deltas: 100% (7/7), completed with 7 local objects.
+To github.com:MaNafromSaar/fractol.git
+   71e463f..be35efb  master -> master
+mnaumann@2-B-8 fractol_3 % git pull github_repo              
+Warning: Permanently added the ECDSA host key for IP address '140.82.121.3' to the list of known hosts.
+You asked to pull from the remote 'github_repo', but did not specify
+a branch. Because this is not the default configured remote
+for your current branch, you must specify a branch on the command line.
+mnaumann@2-B-8 fractol_3 % git checkout main                 
+Branch 'main' set up to track remote branch 'main' from 'github_repo'.
+Switched to a new branch 'main'
+mnaumann@2-B-8 fractol_3 % git log
+commit 30902d165a09403ec556f94ca12dfc1b3481ed54 (HEAD -> main, github_repo/main)
+Author: MaNafromSaar <127291363+MaNafromSaar@users.noreply.github.com>
+Date:   Fri Aug 16 10:07:08 2024 +0200
+
+    Add files via upload
+
+commit 1dffddad5636591bffa13ee75b0705c08a0c7675
+Author: MaNafromSaar <127291363+MaNafromSaar@users.noreply.github.com>
+Date:   Fri Aug 16 10:06:42 2024 +0200
+
+    Create README.md
+
+commit f2b9683e6a224fb3464d5d8d81db635f22d1c22c
+Author: MaNafromSaar <127291363+MaNafromSaar@users.noreply.github.com>
+Date:   Fri Aug 16 10:03:53 2024 +0200
+
+    Add files via upload
+
+commit a8f2655479fefd78ad7f1d3cd51c558977f4a502
+Author: Matthias Naumann <mnaumann@2-D-7.42heilbronn.de>
+Date:   Wed Aug 7 17:16:40 2024 +0200
+
+mnaumann@2-B-8 fractol_3 % make
+mkdir -p obj/
+cc -g -Wall -Wextra -Werror -I ./include/ -I./minilibx_opengl_20191021/ -c fractol.c -o obj/fractol.o
+mkdir -p obj/
+cc -g -Wall -Wextra -Werror -I ./include/ -I./minilibx_opengl_20191021/ -c init.c -o obj/init.o
+mkdir -p obj/
+cc -g -Wall -Wextra -Werror -I ./include/ -I./minilibx_opengl_20191021/ -c julia.c -o obj/julia.o
+mkdir -p obj/
+cc -g -Wall -Wextra -Werror -I ./include/ -I./minilibx_opengl_20191021/ -c mandelbrot.c -o obj/mandelbrot.o
+mkdir -p obj/
+cc -g -Wall -Wextra -Werror -I ./include/ -I./minilibx_opengl_20191021/ -c tricorn.c -o obj/tricorn.o
+mkdir -p obj/
+cc -g -Wall -Wextra -Werror -I ./include/ -I./minilibx_opengl_20191021/ -c img01.c -o obj/img01.o
+mkdir -p obj/
+cc -g -Wall -Wextra -Werror -I ./include/ -I./minilibx_opengl_20191021/ -c img02.c -o obj/img02.o
+mkdir -p obj/
+cc -g -Wall -Wextra -Werror -I ./include/ -I./minilibx_opengl_20191021/ -c operations01.c -o obj/operations01.o
+mkdir -p obj/
+cc -g -Wall -Wextra -Werror -I ./include/ -I./minilibx_opengl_20191021/ -c operations02.c -o obj/operations02.o
+mkdir -p obj/
+cc -g -Wall -Wextra -Werror -I ./include/ -I./minilibx_opengl_20191021/ -c utils.c -o obj/utils.o
+cc -framework OpenGL -framework AppKit ./obj/fractol.o ./obj/init.o ./obj/julia.o ./obj/mandelbrot.o ./obj/tricorn.o ./obj/img01.o ./obj/img02.o ./obj/operations01.o ./obj/operations02.o ./obj/utils.o -o fractol ./minilibx_opengl_20191021/libmlx.a 
+mnaumann@2-B-8 fractol_3 % ./julia
+zsh: no such file or directory: ./julia
+mnaumann@2-B-8 fractol_3 % ./fractol julia
+mnaumann@2-B-8 fractol_3 % ./fractol julia 0.4 0.6
+mnaumann@2-B-8 fractol_3 % ./fractol julia -0.4 0.6
+mnaumann@2-B-8 fractol_3 % 
